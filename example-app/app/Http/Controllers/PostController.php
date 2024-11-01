@@ -20,4 +20,11 @@ class PostController extends Controller
         \Log::debug($id);
         return view('posts.show', ['singlepost' => $post]);
     }
+    
+    public function store(Request $request) {
+        \Log::debug($request);
+
+        $post = Post::create($data);
+        return to_route('post.show', $post)->with()
+    }
 }
